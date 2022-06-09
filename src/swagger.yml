@@ -1,0 +1,194 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "0.0.1"
+  title: "Noohoot"
+  contact:
+    email: "john.valinger@omegapoint.se"
+  license:
+    name: "MIT"
+    url: "https://mit-license.org"
+host: "localhost:8000"
+basePath: "/v1"
+schemes:
+- "https"
+- "http"
+paths:
+  /session:
+    post:
+      tags:
+      - "session"
+      summary: "Create a new quiz session"
+      description: ""
+      operationId: "createSession"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /session/{sessionId}:
+    post:
+      tags:
+      - "session"
+      summary: "Updates a quiz session"
+      description: ""
+      operationId: "updateSession"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "sessionId"
+        in: "path"
+        description: "ID quiz session"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+    get:
+      tags:
+      - "session"
+      summary: "View info about a quiz session"
+      description: ""
+      operationId: "getSession"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "sessionId"
+        in: "path"
+        description: "ID quiz session"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /session/{sessionId}/begin:
+    get:
+      tags:
+      - "session"
+      summary: "starts a quiz session"
+      description: ""
+      operationId: "startSession"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "sessionId"
+        in: "path"
+        description: "ID quiz session"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /quiz:
+    post:
+      tags:
+      - "quiz"
+      summary: "Creates a quiz"
+      description: ""
+      operationId: "createQuiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /quiz/{quizId}:
+    put:
+      tags:
+      - "quiz"
+      summary: "Updates a quiz"
+      description: ""
+      operationId: "updateQuiz"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "quizId"
+        in: "path"
+        description: "Quiz Id"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /quiz/{quizId}/next:
+    put:
+      tags:
+      - "quiz"
+      summary: "adds another question to quiz"
+      description: ""
+      operationId: "addNextQuizQuestion"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "quizId"
+        in: "path"
+        description: "Quiz Id"
+        required: true
+        type: "string"
+        format: "string"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+  /quiz/{quizId}/question/{step}:
+    get:
+      tags:
+      - "quiz"
+      summary: "gets question from a quiz"
+      description: ""
+      operationId: "getQuestion"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "quizId"
+        in: "path"
+        description: "Quiz Id"
+        required: true
+        type: "string"
+        format: "string"
+      - name: "step"
+        in: "path"
+        description: "step"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Great success"
+        "400":
+          description: "Invalid input"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
