@@ -23,6 +23,6 @@ fn start_session(name: Json<Name>) -> String {
 }
 
 #[launch]
-pub fn rocket() -> _ {
+pub fn start() -> _ {
     rocket::build().mount(BASEURL, routes![index, start_session])
 }
