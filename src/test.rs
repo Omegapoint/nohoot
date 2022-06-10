@@ -12,6 +12,15 @@ mod test {
         assert_eq!(response.status(), Status::Ok);
         assert_eq!(response.into_string().unwrap(), "Hello, world!\n");
     }
+
+    #[test]
+    fn hello_name() {
+        let rocket = crate::start();
+        let client = Client::tracked(rocket).unwrap();
+        let response = client.get("/v1/hello/kalle").dispatch();
+        assert_eq!(response.status(), Status::Ok);
+        assert_eq!(response.into_string().unwrap(), "Hello, kalle!\n");
+    }
     
     #[test]
     fn session() {

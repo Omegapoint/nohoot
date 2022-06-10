@@ -16,6 +16,11 @@ fn index() -> &'static str {
     "Hello, world!\n"
 }
 
+#[get("/hello/<name>")]
+fn hello(name: String) -> String {
+    format!("Hello, {}!\n", name)
+}
+
 #[post("/session", format="application/json", data="<name>")]
 fn start_session(name: Json<Name>) -> String {
     let r = format!("You get a session for {}!\n", name.name.as_str());
@@ -24,5 +29,5 @@ fn start_session(name: Json<Name>) -> String {
 
 #[launch]
 pub fn start() -> _ {
-    rocket::build().mount(BASEURL, routes![index, start_session])
+    rocket::build().mount(BASEURL, routes![index, start_session, hello])
 }
