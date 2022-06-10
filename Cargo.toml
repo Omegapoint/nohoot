@@ -9,4 +9,5 @@ edition = "2021"
 rand = "0.8.3"
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
-rocket = { features = ["secrets", "tls", "json"] }
+rocket = { features = ["secrets", "tls", "json", "uuid"] }
+uuid = {features = ["v4"]}

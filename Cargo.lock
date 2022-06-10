@@ -671,6 +671,7 @@ dependencies = [
  "rocket",
  "serde",
  "tokio",
+ "uuid",
 ]
 
 [[package]]
@@ -959,6 +960,7 @@ dependencies = [
  "tokio-stream",
  "tokio-util 0.7.3",
  "ubyte",
+ "uuid",
  "version_check",
  "yansi",
 ]
@@ -1007,6 +1009,7 @@ dependencies = [
  "tokio",
  "tokio-rustls",
  "uncased",
+ "uuid",
 ]
 
 [[package]]
@@ -1450,6 +1453,16 @@ name = "untrusted"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a156c684c91ea7d62626509bce3cb4e1d9ed5c4d978f7b4352658f96a4c26b4a"
+
+[[package]]
+name = "uuid"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c6d5d669b51467dcf7b2f1a796ce0f955f05f01cafda6c19d6e95f730df29238"
+dependencies = [
+ "getrandom",
+ "serde",
+]
 
 [[package]]
 name = "valuable"
